@@ -32,7 +32,7 @@ namespace PulseSnakeScoreAPI
                     using (SqlCommand command = new SqlCommand())
                     {
                         command.Connection = connection;
-                        command.CommandText = "SELECT * FROM tblScores where ScoreType = @scoreType";
+                        command.CommandText = "SELECT top 5 * FROM tblScores where ScoreType = @scoreType order by 'Score' desc;";
                         command.Parameters.AddWithValue("@scoreType", scoreType);
 
                         var result = await command.ExecuteReaderAsync();

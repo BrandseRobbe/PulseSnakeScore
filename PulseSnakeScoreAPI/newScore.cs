@@ -14,7 +14,7 @@ namespace PulseSnakeScoreAPI
 {
     public static class newScore
     {
-        [FunctionName("newScore")]
+        [FunctionName("newScore")] //HTTP Trigger that iserts a score into the db
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "newScore")] HttpRequest req,
             ILogger log)

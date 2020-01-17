@@ -15,7 +15,7 @@ namespace PulseSnakeScoreAPI
 {
     public static class getAllScores
     {
-        [FunctionName("getAllScores")]
+        [FunctionName("getAllScores")] //HTTP Trigger that returns all the scores
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "getAllScores")] HttpRequest req,
             ILogger log)

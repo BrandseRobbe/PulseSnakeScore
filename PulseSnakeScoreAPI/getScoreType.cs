@@ -45,7 +45,8 @@ namespace PulseSnakeScoreAPI
                                 Name = result["Name"].ToString(),
                                 Date = DateTime.Parse(result["Date"].ToString()),
                                 Score = double.Parse(result["Score"].ToString()),
-                                ScoreType = result["ScoreType"].ToString()
+                                ScoreType = result["ScoreType"].ToString(),
+                                Minuten = Convert.ToInt16(result["Minuten"].ToString()),
                             };
                             scorelist.Add(score);
                         }

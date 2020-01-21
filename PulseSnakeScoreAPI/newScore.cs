@@ -36,12 +36,13 @@ namespace PulseSnakeScoreAPI
                     {
                         command.Connection = connection;
 
-                        command.CommandText = "INSERT INTO tblScores (ScoreId, Name, Date, ScoreType, Score) VALUES (@ScoreId, @Name, @Date, @ScoreType, @Score)";
+                        command.CommandText = "INSERT INTO tblScores (ScoreId, Name, Date, ScoreType, Score, Minuten) VALUES (@ScoreId, @Name, @Date, @ScoreType, @Score, @Minuten)";
                         command.Parameters.AddWithValue("@ScoreId", newScore.ScoreId);
                         command.Parameters.AddWithValue("@Name", newScore.Name);
                         command.Parameters.AddWithValue("@Date", newScore.Date);
                         command.Parameters.AddWithValue("@ScoreType", newScore.ScoreType);
                         command.Parameters.AddWithValue("@Score", newScore.Score);
+                        command.Parameters.AddWithValue("@Minuten", newScore.Minuten);
 
                         await command.ExecuteNonQueryAsync();
                     }

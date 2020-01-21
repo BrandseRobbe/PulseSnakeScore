@@ -1,3 +1,4 @@
 {
-    "version": "2.0"
+    "version": "2.0",
+    "connectionstringdb": "Server=tcp:sqlserverkots.database.windows.net,1433;Initial Catalog=sqldbkots;Persist Security Info=False;User ID=kots;Password=Azerty!8;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
 }

@@ -12,5 +12,6 @@ namespace PulseSnakeScoreAPI.Models
         public string ScoreType { get; set; }
         public double Score { get; set; }
         public int Minuten { get; set; }
+        public double ScorePerMinuut { get; set; }
     }
 }

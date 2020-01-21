@@ -32,7 +32,7 @@ namespace PulseSnakeScoreAPI
                     using (SqlCommand command = new SqlCommand())
                     {
                         command.Connection = connection;
-                        if (scoreType == 'Score') {
+                        if (scoreType == "Score") {
                             command.CommandText = "SELECT top 5 * , (Score/Minuten) as 'ScorePerMinuut' FROM tblScores where ScoreType = @scoreType order by 'ScorePerMinuut' desc;";
                         }
                         else
@@ -45,6 +45,7 @@ namespace PulseSnakeScoreAPI
 
                         while (await result.ReadAsync())
                         {
+                            log.LogInformation(result.GetType().ToString());
                             ScoreObject score = new ScoreObject()
                             {
                                 ScoreId = Guid.Parse(result["ScoreId"].ToString()),
@@ -52,8 +53,12 @@ namespace PulseSnakeScoreAPI
                                 Date = DateTime.Parse(result["Date"].ToString()),
                                 Score = double.Parse(result["Score"].ToString()),
                                 ScoreType = result["ScoreType"].ToString(),
-                                Minuten = Convert.ToInt16(result["Minuten"].ToString()),
+                                Minuten = Int16.Parse(result["Minuten"].ToString()),
                             };
+                            if (scoreType == "Score")
+                            {
+                                score.ScorePerMinuut = double.Parse(result["ScorePerMinuut"].ToString());
+                            }
                             scorelist.Add(score);
                         }
                     }

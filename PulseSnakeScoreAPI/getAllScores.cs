@@ -32,7 +32,7 @@ namespace PulseSnakeScoreAPI
                     using (SqlCommand command = new SqlCommand())
                     {
                         command.Connection = connection;
-                        command.CommandText = "SELECT * FROM tblScores limit 100";
+                        command.CommandText = "SELECT * FROM tblScores";
 
                         var result = await command.ExecuteReaderAsync();
 
@@ -45,7 +45,7 @@ namespace PulseSnakeScoreAPI
                                 Date = DateTime.Parse(result["Date"].ToString()),
                                 Score = double.Parse(result["Score"].ToString()),
                                 ScoreType = result["ScoreType"].ToString(),
-                                Minuten = Convert.ToInt16(result["Minuten"].ToString()),
+                                Minuten = Int16.Parse(result["Minuten"].ToString()),
                             };
                             scorelist.Add(score);
                         }
